@@ -1,50 +1,57 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+const styles = {
+  container: {
+    display: "flex",
+    width: "100vw",
+    justifyContent: "center",
+    flexDirection: "row",
+    flexWrap: "wrap",
+  },
+};
+const data = {
+  id: 1,
+  name: "Lemon Tree",
+  imageUrl:
+    "https://plantsexpress.com/cdn/shop/products/Meyer-lemon-tree-3.jpg?v=1684512306&width=1946",
+  lastTimeWatered: "26 August",
+  isHealthy: true,
+  type: "tree",
+};
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <p className="read-the-docs">hello</p>
-      <table id="myTable" border="5" style={{ width: "100%", height: "300px" }}>
+    <div style={styles.container}>
+      <p style={{ width: "100%" }} className="read-the-docs">
+        hello
+      </p>
+      <table id="myTable" border="5" style={{ height: "100px" }}>
         <tr>
-          <th style={{ width: "10%" }}>id</th>
-          <th style={{ width: "20%" }}>Name</th>
-          <th style={{ width: "20%" }}>Image</th>
-          <th style={{ width: "10%" }}>Type</th>
-          <th style={{ width: "10%" }}>Is Healthy</th>
-          <th style={{ width: "20%" }}>Last Time Watered</th>
-          <th style={{ width: "10%" }}>Actions</th>
+          <th>id</th>
+          <th>Name</th>
+          <th>Image</th>
+          <th>Type</th>
+          <th>Is Healthy</th>
+          <th>Last Time Watered</th>
+          <th>Actions</th>
         </tr>
         <tr style={{ height: "100px" }}>
-          <td>1</td>
-          <td>Lemon Tree</td>
+          <td>{data.id}</td>
+          <td>{data.name}</td>
           <td>
             <img
-              src="https://plantsexpress.com/cdn/shop/products/Meyer-lemon-tree-3.jpg?v=1684512306&width=1946"
-              alt="Lemon Tree"
+              src={data.imageUrl}
+              alt={data.name}
               style={{ width: "100px", height: "auto" }}
             />
           </td>
-          <td>Tree</td>
-          <td>Yes</td>
-          <td>26 August</td>
+          <td>{data.type}</td>
+          <td>{data.isHealthy ? "Yes" : "No"}</td>
+          <td>{data.lastTimeWatered}</td>
           <td>Edit/Delete</td>
         </tr>
-        <tr style={{ height: "100px" }}>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
       </table>
-    </>
+    </div>
   );
 }
 
